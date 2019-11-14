@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const apiKey = '0cb283b0d1133d96666eab4166fb3fc1';
 
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
@@ -31,8 +34,8 @@ app.post('/', function (req, res) {
     });
 })
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+app.listen(port, function () {
+    console.log('Example app listening on port: ' + port);
 })
 
 //https://codeburst.io/build-a-weather-website-in-30-minutes-with-node-js-express-openweather-a317f904897b
