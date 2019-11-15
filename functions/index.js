@@ -8,6 +8,7 @@ const functions = require('firebase-functions');
 // });
 
 const express = require('express');
+const engines = require('consolidate');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
@@ -15,15 +16,19 @@ const apiKey = '0cb283b0d1133d96666eab4166fb3fc1';
 
 const port = 5000;
 
+// app.engine('html', require('ejs').renderFile);
+// app.engine('html', engines.ejs);
+
+app.engine('ejs', require('ejs').__express);
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views',  './views');
 app.set('view engine', 'ejs');
 
-
 app.get('/', function (req, res) {
-    res.render('index.ejs', { weather: null, error: null });
+    res.render('index', { weather: null, error: null });
 })
 
 app.post('/', function (req, res) {
