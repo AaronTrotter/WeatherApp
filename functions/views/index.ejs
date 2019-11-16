@@ -3,27 +3,31 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <title>Aaron's Weather App</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="container">
         <fieldset>
-            <form action="/" method="post">
+            <form>
                 <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-                <input type="submit" class="ghost-button" value="Get Weather">
+                <button type="button"  class="ghost-button" data-api="<%= apiKey %>">Get Weather</button>
             </form>
-            <% if(weather !== null){ %>
+            <!-- <% if(weather !== null){ %>
             <p><%= weather %></p>
             <% } %>
 
             <% if(error !== null){ %>
             <p><%= error %></p>
-            <% } %>
+            <% } %> -->
         </fieldset>
+        <p class="weather"></p>
     </div>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -22,27 +22,27 @@ app.set('views',  './views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index', { weather: null, error: null });
+    res.render('index', { weather: null, error: null, apiKey: apiKey });
 });
 
-app.post('/', function (req, res) {
-    let city = req.body.city;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+// app.post('/', (req, res) => {
+//     let city = req.body.city;
+//     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
 
-    request(url, function (err, response, body) {
-        if (err) {
-            res.render('index', { weather: null, error: 'Error, please try again' });
-        } else {
-            let weather = JSON.parse(body)
-            if (weather.main === undefined) {
-                res.render('index', { weather: null, error: 'Error, please try again' });
-            } else {
-                let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-                res.render('index', { weather: weatherText, error: null });
-            }
-        }
-    });
-});
+//     request(url, (err, response, body) => {
+//         if (err) {
+//             res.render('index', { weather: null, error: 'Error, please try again' });
+//         } else {
+//             let weather = JSON.parse(body)
+//             if (weather.main === undefined) {
+//                 res.render('index', { weather: null, error: 'Error, please try again' });
+//             } else {
+//                 let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+//                 res.render('index', { weather: weatherText, error: null });
+//             }
+//         }
+//     });
+// });
 
 //https://codeburst.io/build-a-weather-website-in-30-minutes-with-node-js-express-openweather-a317f904897b
 

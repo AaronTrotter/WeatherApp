@@ -50,11 +50,13 @@ fieldset {
   -ms-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
+  text-transform: uppercase;
 }
 .ghost-input:focus {
   border-bottom:1px solid #ddd;
 }
 .ghost-button {
+  cursor: pointer;
   background-color: transparent;
   border:2px solid #ddd;
   padding:10px 30px;
@@ -65,6 +67,7 @@ fieldset {
   -ms-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
+  text-transform: uppercase;
 }
 .ghost-button:hover {
   border:2px solid #515151;
